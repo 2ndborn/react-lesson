@@ -1,13 +1,10 @@
 import './App.css';
-import EventBinding from './components/EventBinding';
-import FunctionalGreeting from './components/FunctionalGreeting';
-import FunctionalGreetingWithProps from './components/FunctionalGreetingWithProps';
-import StatefulGreeting from './components/StatefulGreeting';
+import ConditionalRenderClass from './components/ConditionalRenderClass';
 
 function App() {
   return (
     <div className="App">
-      <EventBinding />
+      <ConditionalRenderClass />
     </div>
   );
 }
