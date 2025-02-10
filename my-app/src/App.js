@@ -1,11 +1,10 @@
 import './App.css';
-import ConditionalRenderClass from './components/ConditionalRenderClass';
-import NestedComponents from './components/NestedComponents';
+import MethodsAsPropsParent from './components/MethodsAsPropsParent';
 
 function App() {
   return (
     <div className="App">
-      <NestedComponents />
+      <MethodsAsPropsParent />
     </div>
   );
 }
