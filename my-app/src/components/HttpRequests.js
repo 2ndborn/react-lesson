@@ -6,24 +6,48 @@ export class HttpRequests extends Component {
       super(props)
     
       this.state = {
-         post: []
+         posts: [],
+         error: null,
       }
     }
 
     componentDidMount() {
-      axios.get('https://jsonplaceholder.typicode.com/posts')
+      axios.get('https://jsonplaceholder.typicode.com/posts/9999')
       .then(response => {
         console.log(response)
         this.setState({
-          post: response.data,
+          posts: Array.isArray(response.data)
+          ? response.data
+          : [response.data]
+        })
+      })
+      .catch(error => {
+        this.setState({
+          error: error.message,
         })
       })
     }
   render() {
+    const posts = this.state.posts
     return (
       <div>
         <h2>Posts:</h2>
-        {JSON.stringify(this.state.post)}
+        {
+          posts.length ? (
+            posts.map(post => (
+              <div key={post.id}>
+                <h2>{post.id}. {post.title}</h2>
+                <h4>By user ID: {post.userId}</h4>
+                <p>{post.body}</p>
+                <hr />
+              </div>
+            ))
+          ) : (
+            this.state.error 
+            ? <p>{this.state.error}</p>
+            : <h4>Loading posts...</h4>
+          )
+        }
       </div>
     )
   }
