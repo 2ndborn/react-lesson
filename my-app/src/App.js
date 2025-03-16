@@ -1,6 +1,7 @@
 import './App.css';
 import ControlledForm from './components/ControlledForm';
 import ControlledFormHook from './components/ControlledFormHook';
+import HttpRequests from './components/HttpRequests';
 import LifeCycleCDU from './components/LifeCycleCDU';
 import LifeCyclesCWU from './components/LifeCyclesCWU';
 import SearchBar from './components/SearchBar';
@@ -11,7 +12,7 @@ import UseStateWithObjects from './components/UseStateWithObjects';
 function App() {
   return (
     <div className="App">
-      <UseStateWithObjects />
+      <HttpRequests />
     </div>
   );
 }
