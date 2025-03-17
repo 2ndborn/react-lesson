@@ -6,7 +6,7 @@ export class HttpPosts extends Component {
       super(props)
     
       this.state = {
-         createPost: [],
+         postApiResponse: null,
       }
     }
     postToApi = () => {
@@ -15,14 +15,27 @@ export class HttpPosts extends Component {
             {
                 title: 'Hello world!',
                 body: 'It works!!!',
-                userID: 123
+                userId: 123
             }
-        ).then(response => console.log(response))
+        ).then(response => this.setState({
+          postApiResponse: response.data
+        }))
     }
   render() {
+    const {postApiResponse} = this.state
     return (
       <div>
         <button onClick={this.postToApi}>Create Post</button>
+        {
+          postApiResponse
+          ? (<idv>
+            <h1>{postApiResponse.title}</h1>
+            <p>Post id: {postApiResponse.id}</p>
+            <p>{postApiResponse.body}</p>
+            <p>User id: {postApiResponse.userId}</p>
+          </idv>)
+          : (<p>Please click the button above</p>)
+        }
       </div>
     )
   }
