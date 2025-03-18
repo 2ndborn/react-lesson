@@ -4,6 +4,23 @@ import axios from 'axios'
 function HttpHooks() {
     const [posts, setPosts] = useState([]);
     const [error, setError] = useState(null);
+    const [postMessage, setPostMessage] = useState(null);
+    const postToApi = () => {
+        axios.post(
+            'https://jsonplaceholder.typicode.com/posts', 
+            {
+                title: 'Hello world!',
+                body: 'It works!!!',
+                userId: 123
+            }
+        ).then(response => {
+            setPostMessage(response.status === 201
+                ? `Success!: ${response.data.title}`
+                : 'Fail'
+            )
+        })
+    }
+
     useEffect(() => {
         axios.get('https://jsonplaceholder.typicode.com/posts/1')
         .then(response => {
@@ -18,6 +35,9 @@ function HttpHooks() {
     }, [])
     return (
         <div>
+            <button onClick={postToApi}>
+                Create post
+            </button>
             <h2>Posts:</h2>
             {
             posts.length ? (
