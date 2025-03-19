@@ -38,6 +38,7 @@ function HttpHooks() {
             <button onClick={postToApi}>
                 Create post
             </button>
+            <p>{postMessage}</p>
             <h2>Posts:</h2>
             {
             posts.length ? (
