@@ -16,7 +16,9 @@ function MyRequestHooks() {
         const response = await axios.get(`https://pixabay.com/api/videos/?key=${API_KEY}&per_page=5&video_type=animation`)
         console.log(response)
         const fetchedPosts = response.data.hits;
-        setIsLoaded(true);
+        setTimeout(() => {
+            setIsLoaded(true);
+        }, 2000)
         setPosts(fetchedPosts);
         setSavedPosts(fetchedPosts);
     }
