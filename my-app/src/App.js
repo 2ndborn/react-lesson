@@ -6,6 +6,7 @@ import HttpPosts from './components/HttpPosts';
 import HttpRequests from './components/HttpRequests';
 import LifeCycleCDU from './components/LifeCycleCDU';
 import LifeCyclesCWU from './components/LifeCyclesCWU';
+import MyRequestHooks from './components/MyRequestHooks';
 import SearchBar from './components/SearchBar';
 import UseStateWithArrays from './components/UseStateWithArrays';
 import UseStateWithObjects from './components/UseStateWithObjects';
@@ -14,7 +15,7 @@ import UseStateWithObjects from './components/UseStateWithObjects';
 function App() {
   return (
     <div className="App">
-      <HttpHooks />
+      <MyRequestHooks />
     </div>
   );
 }
